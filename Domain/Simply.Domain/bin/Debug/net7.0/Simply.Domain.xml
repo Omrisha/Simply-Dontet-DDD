@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Simply.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Simply.Domain.GetCountryInput">
+            <summary>
+            Get Country input.
+            </summary>
+        </member>
+        <member name="P:Simply.Domain.GetCountryInput.Name">
+            <summary>
+            Gets or sets the country name.
+            </summary>
+        </member>
+        <member name="P:Simply.Domain.GetCountryInput.Cities">
+            <summary>
+            Gets or sets the cities.
+            </summary>
+        </member>
+    </members>
+</doc>

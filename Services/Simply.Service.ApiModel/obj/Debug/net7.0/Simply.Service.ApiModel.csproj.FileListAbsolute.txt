@@ -1,0 +1,12 @@
+/Users/omrishapira/Desktop/Projects/SimplyServer/Services/Simply.Service.ApiModel/bin/Debug/net7.0/Simply.Service.ApiModel.deps.json
+/Users/omrishapira/Desktop/Projects/SimplyServer/Services/Simply.Service.ApiModel/bin/Debug/net7.0/Simply.Service.ApiModel.dll
+/Users/omrishapira/Desktop/Projects/SimplyServer/Services/Simply.Service.ApiModel/bin/Debug/net7.0/Simply.Service.ApiModel.pdb
+/Users/omrishapira/Desktop/Projects/SimplyServer/Services/Simply.Service.ApiModel/obj/Debug/net7.0/Simply.Service.ApiModel.csproj.AssemblyReference.cache
+/Users/omrishapira/Desktop/Projects/SimplyServer/Services/Simply.Service.ApiModel/obj/Debug/net7.0/Simply.Service.ApiModel.GeneratedMSBuildEditorConfig.editorconfig
+/Users/omrishapira/Desktop/Projects/SimplyServer/Services/Simply.Service.ApiModel/obj/Debug/net7.0/Simply.Service.ApiModel.AssemblyInfoInputs.cache
+/Users/omrishapira/Desktop/Projects/SimplyServer/Services/Simply.Service.ApiModel/obj/Debug/net7.0/Simply.Service.ApiModel.AssemblyInfo.cs
+/Users/omrishapira/Desktop/Projects/SimplyServer/Services/Simply.Service.ApiModel/obj/Debug/net7.0/Simply.Service.ApiModel.csproj.CoreCompileInputs.cache
+/Users/omrishapira/Desktop/Projects/SimplyServer/Services/Simply.Service.ApiModel/obj/Debug/net7.0/Simply.Service.ApiModel.dll
+/Users/omrishapira/Desktop/Projects/SimplyServer/Services/Simply.Service.ApiModel/obj/Debug/net7.0/refint/Simply.Service.ApiModel.dll
+/Users/omrishapira/Desktop/Projects/SimplyServer/Services/Simply.Service.ApiModel/obj/Debug/net7.0/Simply.Service.ApiModel.pdb
+/Users/omrishapira/Desktop/Projects/SimplyServer/Services/Simply.Service.ApiModel/obj/Debug/net7.0/ref/Simply.Service.ApiModel.dll

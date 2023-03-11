@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HotChocolate.Abstractions" Version="13.0.5" />
+    <PackageReference Include="HotChocolate.Types" Version="13.0.5" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="13.0.5" />
+    <PackageReference Include="HotChocolate.Data" Version="13.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Simply.DomainModel.Cqrs\Simply.DomainModel.Cqrs.csproj" />
+  </ItemGroup>
+</Project>

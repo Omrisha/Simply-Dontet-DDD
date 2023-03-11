@@ -1,0 +1,13 @@
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/bin/Debug/net7.0/Simply.Domain.deps.json
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/bin/Debug/net7.0/Simply.Domain.dll
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/bin/Debug/net7.0/Simply.Domain.pdb
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/bin/Debug/net7.0/Simply.Domain.xml
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/obj/Debug/net7.0/Simply.Domain.csproj.AssemblyReference.cache
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/obj/Debug/net7.0/Simply.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/obj/Debug/net7.0/Simply.Domain.AssemblyInfoInputs.cache
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/obj/Debug/net7.0/Simply.Domain.AssemblyInfo.cs
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/obj/Debug/net7.0/Simply.Domain.csproj.CoreCompileInputs.cache
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/obj/Debug/net7.0/Simply.Domain.dll
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/obj/Debug/net7.0/refint/Simply.Domain.dll
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/obj/Debug/net7.0/Simply.Domain.pdb
+/Users/omrishapira/Desktop/SimplyServer/Simply.Domain/obj/Debug/net7.0/ref/Simply.Domain.dll

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Simply.DomainModel.Cqrs</name>
+    </assembly>
+    <members>
+        <member name="T:Simply.DomainModel.Cqrs.GetCountriesQuery">
+            <summary>
+            Get countries input.
+            </summary>
+        </member>
+        <member name="M:Simply.DomainModel.Cqrs.GetCountriesQuery.#ctor(Simply.DomainModel.GetCountriesInput)">
+            <summary>
+            Get countries input.
+            </summary>
+        </member>
+    </members>
+</doc>

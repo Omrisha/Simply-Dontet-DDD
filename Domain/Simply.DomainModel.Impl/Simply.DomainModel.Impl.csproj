@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<DocumentationFile>../Readme/$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+      <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Vsxmd" Version="1.4.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="MediatR" Version="12.0.1" />
+		<PackageReference Include="MediatR.Contracts" Version="2.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Simply.DomainModel.Cqrs\Simply.DomainModel.Cqrs.csproj" />
+    <ProjectReference Include="..\..\Simply.EntityModel\Simply.EntityModel.csproj" />
+    <ProjectReference Include="..\..\Core\Simply.Core\Simply.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Mappings\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mappings\" />
+  </ItemGroup>
+</Project>

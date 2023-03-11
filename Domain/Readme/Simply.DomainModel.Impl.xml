@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Simply.DomainModel.Impl</name>
+    </assembly>
+    <members>
+        <member name="T:Simply.DomainModel.Impl.CountryReader">
+            <summary>
+            Country reader.
+            </summary>
+        </member>
+        <member name="M:Simply.DomainModel.Impl.CountryReader.#ctor(Microsoft.Extensions.Logging.ILogger{Simply.DomainModel.Impl.CountryReader},AutoMapper.IMapper,System.Net.Http.IHttpClientFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Simply.DomainModel.Impl.CountryReader"/> class.
+            </summary>
+            <param name="logger">A <see cref="T:Microsoft.Extensions.Logging.ILogger`1"/> instnace.</param>
+            <param name="mapper">A <see cref="T:AutoMapper.IMapper"/> instance.</param>
+            <param name="httpClientFactory">A <see cref="T:System.Net.Http.IHttpClientFactory"/> instance.</param>
+        </member>
+        <member name="M:Simply.DomainModel.Impl.CountryReader.GetCountries(Simply.DomainModel.GetCountriesInput)">
+            <summary>
+            Get countries logic.
+            </summary>
+            <param name="getCountriesInput">A <see cref="T:Simply.DomainModel.GetCountriesInput"/> instnace.</param>
+            <returns>A task containing <see cref="T:System.Linq.IQueryable`1"/> instnace.</returns>
+        </member>
+        <member name="M:Simply.DomainModel.Impl.CountryReader.Handle(Simply.DomainModel.Cqrs.GetCountriesQuery,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Simply.DomainModel.Impl.Mappings.DomainModelMappingProfile">
+            <summary>
+            Domain model mapping profile.
+            </summary>
+        </member>
+        <member name="M:Simply.DomainModel.Impl.Mappings.DomainModelMappingProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Simply.DomainModel.Impl.Mappings.DomainModelMappingProfile"/> class.
+            </summary>
+        </member>
+    </members>
+</doc>

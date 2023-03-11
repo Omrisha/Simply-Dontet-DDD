@@ -1,0 +1,12 @@
+/Users/omrishapira/Desktop/Projects/SimplyServer/Simply.Services.PresentationModel/obj/Debug/net7.0/Simply.Services.PresentationModel.csproj.AssemblyReference.cache
+/Users/omrishapira/Desktop/Projects/SimplyServer/Simply.Services.PresentationModel/obj/Debug/net7.0/Simply.Services.PresentationModel.GeneratedMSBuildEditorConfig.editorconfig
+/Users/omrishapira/Desktop/Projects/SimplyServer/Simply.Services.PresentationModel/obj/Debug/net7.0/Simply.Services.PresentationModel.AssemblyInfoInputs.cache
+/Users/omrishapira/Desktop/Projects/SimplyServer/Simply.Services.PresentationModel/obj/Debug/net7.0/Simply.Services.PresentationModel.AssemblyInfo.cs
+/Users/omrishapira/Desktop/Projects/SimplyServer/Simply.Services.PresentationModel/obj/Debug/net7.0/Simply.Services.PresentationModel.csproj.CoreCompileInputs.cache
+/Users/omrishapira/Desktop/Projects/SimplyServer/Simply.Services.PresentationModel/bin/Debug/net7.0/Simply.Services.PresentationModel.deps.json
+/Users/omrishapira/Desktop/Projects/SimplyServer/Simply.Services.PresentationModel/bin/Debug/net7.0/Simply.Services.PresentationModel.dll
+/Users/omrishapira/Desktop/Projects/SimplyServer/Simply.Services.PresentationModel/bin/Debug/net7.0/Simply.Services.PresentationModel.pdb
+/Users/omrishapira/Desktop/Projects/SimplyServer/Simply.Services.PresentationModel/obj/Debug/net7.0/Simply.Services.PresentationModel.dll
+/Users/omrishapira/Desktop/Projects/SimplyServer/Simply.Services.PresentationModel/obj/Debug/net7.0/refint/Simply.Services.PresentationModel.dll
+/Users/omrishapira/Desktop/Projects/SimplyServer/Simply.Services.PresentationModel/obj/Debug/net7.0/Simply.Services.PresentationModel.pdb
+/Users/omrishapira/Desktop/Projects/SimplyServer/Simply.Services.PresentationModel/obj/Debug/net7.0/ref/Simply.Services.PresentationModel.dll

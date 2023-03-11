@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Simply.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Simply.Core.EntityNotFoundException">
+            <summary>
+            Entity not found exception.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Simply.Core.EntityNotFoundException.#ctor(System.String,System.String)" -->
+        <member name="T:Simply.Core.ServerErrorException">
+            <summary>
+            Server error exception.
+            </summary>
+        </member>
+        <member name="M:Simply.Core.ServerErrorException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Simply.Core.ServerErrorException"/> class. 
+            </summary>
+            <param name="message">An error message.</param>
+        </member>
+    </members>
+</doc>
