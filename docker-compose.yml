@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  simplyserver:
+    image: ${DOCKER_REGISTRY-}simplyserver
+    build:
+      context: .
+      dockerfile: Application/Simply.Application.WebApiApplication/Dockerfile

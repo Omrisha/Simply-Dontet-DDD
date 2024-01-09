@@ -1,39 +1,41 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1704.3
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{5381567E-0CCA-41B2-A1CE-49039C98265D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{4F98FCA6-6A78-4C95-A534-99AA2B56AD05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.EntityModel", "Simply.EntityModel\Simply.EntityModel.csproj", "{5A1B08BA-6373-40D0-ADCA-04160CBA4561}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.EntityModel", "Simply.EntityModel\Simply.EntityModel.csproj", "{5A1B08BA-6373-40D0-ADCA-04160CBA4561}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{ED5D2150-096D-4E51-ACF7-016CEC949BF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.Services.PresentationModel", "Simply.Services.PresentationModel\Simply.Services.PresentationModel.csproj", "{D2D13DD6-B850-4598-A4FF-F6D6A305B218}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.Services.PresentationModel", "Simply.Services.PresentationModel\Simply.Services.PresentationModel.csproj", "{D2D13DD6-B850-4598-A4FF-F6D6A305B218}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.DomainModel", "Domain\Simply.Domain\Simply.DomainModel.csproj", "{A05C2666-5A09-49DE-B8A0-F4D5770862B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.DomainModel", "Domain\Simply.Domain\Simply.DomainModel.csproj", "{A05C2666-5A09-49DE-B8A0-F4D5770862B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.DomainModel.Cqrs", "Domain\Simply.DomainModel.Cqrs\Simply.DomainModel.Cqrs.csproj", "{5807B898-3D96-42F3-B572-873BDB59DAB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.DomainModel.Cqrs", "Domain\Simply.DomainModel.Cqrs\Simply.DomainModel.Cqrs.csproj", "{5807B898-3D96-42F3-B572-873BDB59DAB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.DomainModel.Impl", "Domain\Simply.DomainModel.Impl\Simply.DomainModel.Impl.csproj", "{246B582B-C003-4BF4-96EA-C6FD9DBCD049}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.DomainModel.Impl", "Domain\Simply.DomainModel.Impl\Simply.DomainModel.Impl.csproj", "{246B582B-C003-4BF4-96EA-C6FD9DBCD049}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F8ECA06A-8732-413D-9106-C79A2A4B0F26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.Core", "Core\Simply.Core\Simply.Core.csproj", "{A07602E0-C9DC-4C0C-847D-E2A302DABA51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.Core", "Core\Simply.Core\Simply.Core.csproj", "{A07602E0-C9DC-4C0C-847D-E2A302DABA51}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{4F821C34-AEA4-43B8-ADFB-6683391F6A74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyServer", "Application\Simply.Application.WebApiApplication\SimplyServer.csproj", "{5F0DB83F-875A-465F-9442-D981E0C701D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplyServer", "Application\Simply.Application.WebApiApplication\SimplyServer.csproj", "{5F0DB83F-875A-465F-9442-D981E0C701D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.Service.ApiModel", "Services\Simply.Service.ApiModel\Simply.Service.ApiModel.csproj", "{9560F0EB-525E-469D-80FA-D23890499634}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.Service.ApiModel", "Services\Simply.Service.ApiModel\Simply.Service.ApiModel.csproj", "{9560F0EB-525E-469D-80FA-D23890499634}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.Services.Graphql", "Simply.Services.Graphql\Simply.Services.Graphql.csproj", "{6AD6148D-FE00-4DF1-9872-6DC58BB5B4AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.Services.Graphql", "Simply.Services.Graphql\Simply.Services.Graphql.csproj", "{6AD6148D-FE00-4DF1-9872-6DC58BB5B4AB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{798064EA-67CE-4E7A-AD90-8F6BC643337F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.Application.ApplicationModel", "Application\Simply.Application.WebApiApplication\Simply.Application.ApplicationModel\Simply.Application.ApplicationModel.csproj", "{17CB0833-1574-4430-AFF3-6B55DF5FD37A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.Application.ApplicationModel", "Application\Simply.Application.WebApiApplication\Simply.Application.ApplicationModel\Simply.Application.ApplicationModel.csproj", "{17CB0833-1574-4430-AFF3-6B55DF5FD37A}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{EE16FFF9-781E-40B4-BDE4-C3B7875832D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,12 +83,13 @@ Global
 		{17CB0833-1574-4430-AFF3-6B55DF5FD37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17CB0833-1574-4430-AFF3-6B55DF5FD37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17CB0833-1574-4430-AFF3-6B55DF5FD37A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE16FFF9-781E-40B4-BDE4-C3B7875832D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE16FFF9-781E-40B4-BDE4-C3B7875832D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE16FFF9-781E-40B4-BDE4-C3B7875832D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE16FFF9-781E-40B4-BDE4-C3B7875832D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6AE31018-068E-4F57-87AF-86B160F8F390}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5A1B08BA-6373-40D0-ADCA-04160CBA4561} = {4F98FCA6-6A78-4C95-A534-99AA2B56AD05}
@@ -99,5 +102,8 @@ Global
 		{9560F0EB-525E-469D-80FA-D23890499634} = {ED5D2150-096D-4E51-ACF7-016CEC949BF2}
 		{6AD6148D-FE00-4DF1-9872-6DC58BB5B4AB} = {ED5D2150-096D-4E51-ACF7-016CEC949BF2}
 		{17CB0833-1574-4430-AFF3-6B55DF5FD37A} = {4F821C34-AEA4-43B8-ADFB-6683391F6A74}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6AE31018-068E-4F57-87AF-86B160F8F390}
 	EndGlobalSection
 EndGlobal
