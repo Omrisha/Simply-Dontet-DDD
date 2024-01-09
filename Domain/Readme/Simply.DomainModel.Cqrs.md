@@ -3,11 +3,11 @@
 
 ## Contents
 
-- [GetCountriesQuery](#T-Simply-DomainModel-Cqrs-GetCountriesQuery 'Simply.DomainModel.Cqrs.GetCountriesQuery')
-  - [#ctor()](#M-Simply-DomainModel-Cqrs-GetCountriesQuery-#ctor-Simply-DomainModel-GetCountriesInput- 'Simply.DomainModel.Cqrs.GetCountriesQuery.#ctor(Simply.DomainModel.GetCountriesInput)')
+- [GetWeatherByCountryNameQuery](#T-Simply-DomainModel-Cqrs-GetWeatherByCountryNameQuery 'Simply.DomainModel.Cqrs.GetWeatherByCountryNameQuery')
+  - [#ctor()](#M-Simply-DomainModel-Cqrs-GetWeatherByCountryNameQuery-#ctor-Simply-DomainModel-GetCountriesInput- 'Simply.DomainModel.Cqrs.GetWeatherByCountryNameQuery.#ctor(Simply.DomainModel.GetCountriesInput)')
 
-<a name='T-Simply-DomainModel-Cqrs-GetCountriesQuery'></a>
-## GetCountriesQuery `type`
+<a name='T-Simply-DomainModel-Cqrs-GetWeatherByCountryNameQuery'></a>
+## GetWeatherByCountryNameQuery `type`
 
 ##### Namespace
 
@@ -15,14 +15,14 @@ Simply.DomainModel.Cqrs
 
 ##### Summary
 
-Get countries input.
+Get weather by country name input.
 
-<a name='M-Simply-DomainModel-Cqrs-GetCountriesQuery-#ctor-Simply-DomainModel-GetCountriesInput-'></a>
+<a name='M-Simply-DomainModel-Cqrs-GetWeatherByCountryNameQuery-#ctor-Simply-DomainModel-GetCountriesInput-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
-Get countries input.
+Get weather by country name input.
 
 ##### Parameters
 

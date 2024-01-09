@@ -8,6 +8,7 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 using Simply.Core;
 using Simply.DomainModel.Cqrs;
+using Simply.ServiceAgent.CountriesServiceAgent.Abstractions;
 
 /// <summary>
 /// Weather reader.
@@ -15,55 +16,59 @@ using Simply.DomainModel.Cqrs;
 public class WeatherReader :
     IRequestHandler<GetWeatherByCountryNameQuery, ICollection<CountryDto>>
 {
-    private const string BaseUrl = "https://api.weatherbit.io/v2.0/current?key=e65ef8948538477fabe19b9ac4e7d029";
+    private const string BaseUrl = "https://countriesnow.space/api/v0.1";
     private readonly ILogger<WeatherReader> logger;
     private readonly IMapper mapper;
-    private HttpClient httpClient;
+    private readonly ICountriesSeviceAgent countriesSeviceAgent;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="WeatherReader"/> class.
     /// </summary>
     /// <param name="logger">A <see cref="ILogger{CountryReader}"/> instnace.</param>
     /// <param name="mapper">A <see cref="IMapper"/> instance.</param>
-    /// <param name="httpClientFactory">A <see cref="IHttpClientFactory"/> instance.</param>
-    public WeatherReader(ILogger<WeatherReader> logger, IMapper mapper, IHttpClientFactory httpClientFactory)
+    /// <param name="countriesSeviceAgent">A <see cref="ICountriesSeviceAgent"/> instance.</param>
+    public WeatherReader(ILogger<WeatherReader> logger, IMapper mapper, ICountriesSeviceAgent countriesSeviceAgent)
     {
         this.logger = logger;
         this.mapper = mapper;
-        this.httpClient = httpClientFactory.CreateClient("CountryClient");
+        this.countriesSeviceAgent = countriesSeviceAgent;
     }
 
     /// <summary>
     /// Get countries logic.
     /// </summary>
-    /// <param name="getCountriesInput">A <see cref="GetWeatherByCountryNameInput"/> instnace.</param>
+    /// <param name="input">A <see cref="GetCountriesInput"/> instnace.</param>
     /// <returns>A task containing <see cref="IQueryable{CountryDto}"/> instnace.</returns>
-    public async Task<ICollection<CountryDto>> GetCountries(GetWeatherByCountryNameInput getCountriesInput)
+    public async Task<ICollection<CountryDto>> GetCountries(GetCountriesInput input)
     {
         try
         {
-            this.logger.LogInformation("Get countries query logic by {Name}", getCountriesInput.Name);
+            this.logger.LogInformation("Get countries query logic by @{input}", input);
 
-            string url = $"{BaseUrl}?city={getCountriesInput.Name}";
+            List<CountryDto> result = new();
 
-            HttpResponseMessage httpResponseMessage = await this.httpClient.GetAsync(url);
+            GetCountriesWithStatesInput getCountriesWithStatesInput = this.mapper.Map<GetCountriesInput, GetCountriesWithStatesInput>(input);
+            GetCountriesWithCitiesInput getCountriesWithCitiesInput = this.mapper.Map<GetCountriesInput, GetCountriesWithCitiesInput>(input);
 
-            if (httpResponseMessage.IsSuccessStatusCode)
+            GetCountriesWithStatesOutput getCountriesWithStatesOutput = await this.countriesSeviceAgent.GetCountriesWithStatesByFilter(getCountriesWithStatesInput);
+            GetCountriesWithCitiesOutput getCountriesWithCitiesOutput = await this.countriesSeviceAgent.GetCountriesWithCitiesByFilter(getCountriesWithCitiesInput);
+
+            Dictionary<string, List<string>> countryToCityMapping = getCountriesWithCitiesOutput.Data.DistinctBy(k => k.Name).ToDictionary(k => k.Name, v => v.Cities);
+
+            getCountriesWithStatesOutput.Data.ForEach(c =>
             {
-                string json = await httpResponseMessage.Content.ReadAsStringAsync();
-                List<CountryDto>? countries = JsonSerializer.Deserialize<List<CountryDto>>(json);
-
-                if (countries is null)
+                List<string> cities = new();
+                countryToCityMapping.TryGetValue(c.Name, out cities);
+                result.Add(new CountryDto
                 {
-                    throw new EntityNotFoundException(nameof(CountryDto), getCountriesInput.Name);
-                }
+                    Name = c.Name,
+                    ThreeLetterCode = c.ThreeLetterCode,
+                    States = this.mapper.Map<List<StateDataModel>, List<StateDto>>(c.States),
+                    Cities = cities,
+                });
+            });
 
-                return countries;
-            }
-            else
-            {
-                throw new ServerErrorException("There's was unexpected error with the service.");
-            }
+            return result;
         }
         catch (Exception ex)
         {

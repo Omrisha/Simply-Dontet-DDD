@@ -2,6 +2,7 @@
 
 using AutoMapper;
 using Simply.EntityModel;
+using Simply.ServiceAgent.CountriesServiceAgent.Abstractions;
 
 /// <summary>
 /// Domain model mapping profile.
@@ -13,6 +14,12 @@ public class DomainModelMappingProfile : Profile
     /// </summary>
     public DomainModelMappingProfile()
     {
-        this.CreateProjection<CountryEntity, CountryDto>();
+        this.CreateMap<GetCountriesInput, GetCountriesWithStatesInput>();
+        this.CreateMap<GetCountriesInput, GetCountriesWithCitiesInput>();
+        this.CreateMap<CountryWithStatesDataModel, CountryDto>()
+            .ForMember(d => d.Name, m => m.MapFrom(s => s.Name));
+
+        this.CreateMap<StateDataModel, StateDto>()
+            .ForMember(d => d.Name, m => m.MapFrom(s => s.Name));
     }
 }

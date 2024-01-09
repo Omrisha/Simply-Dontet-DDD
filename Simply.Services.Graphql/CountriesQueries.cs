@@ -1,4 +1,5 @@
-﻿using HotChocolate;
+﻿using AutoMapper;
+using HotChocolate;
 using MediatR;
 using Simply.DomainModel;
 using Simply.DomainModel.Cqrs;
@@ -12,12 +13,13 @@ public class CountriesQueries
     /// Get countries query.
     /// </summary>
     /// <param name="mediator">A <see cref="IMediator"/> instance.</param>
-    /// <param name="name">Country name to search weather for.</param>
+    /// <param name="filter">Country name to search weather for.</param>
     /// <returns></returns>
     [Serial]
-    public static async Task<ICollection<CountryDto>> GetWeatherForCountryName([Service] IMediator mediator, string name)
+    public async Task<ICollection<CountryDto>> GetCountries([Service] IMediator mediator, [Service] IMapper mapper, CountriesQueryParameters? filter = null)
     {
-        return await mediator.Send(new GetWeatherByCountryNameQuery(new(name)));
+        GetCountriesInput getCountriesInput = filter != null ? mapper.Map<CountriesQueryParameters, GetCountriesInput>(filter) : new();
+        return await mediator.Send(new GetWeatherByCountryNameQuery(getCountriesInput));
     }
 }
 

@@ -6,3 +6,5 @@ services:
     build:
       context: .
       dockerfile: Application/Simply.Application.WebApiApplication/Dockerfile
+    ports:
+      - 5810:80

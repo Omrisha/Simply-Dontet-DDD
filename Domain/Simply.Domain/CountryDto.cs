@@ -1,7 +1,9 @@
 ﻿namespace Simply.DomainModel;
 
+using System.Text.Json.Serialization;
+
 /// <summary>
-/// Get Country input.
+/// Country data transfer object.
 /// </summary>
 public class CountryDto
 {
@@ -11,7 +13,17 @@ public class CountryDto
     public string Name { get; set; }
 
     /// <summary>
+    /// Gets or sets the three letter code.
+    /// </summary>
+    public string ThreeLetterCode { get; set; }
+
+    /// <summary>
     /// Gets or sets the cities.
     /// </summary>
     public List<string> Cities { get; set; }
+
+    /// <summary>
+    /// Gets or sets the states.
+    /// </summary>
+    public List<StateDto> States { get; set; }
 }

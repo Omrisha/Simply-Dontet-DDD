@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ServiceAgents\Abstractions\Simply.ServiceAgent.CountriesServiceAgent.Abstractions\Simply.ServiceAgent.CountriesServiceAgent.Abstractions.csproj" />
     <ProjectReference Include="..\Simply.DomainModel.Cqrs\Simply.DomainModel.Cqrs.csproj" />
     <ProjectReference Include="..\..\Simply.EntityModel\Simply.EntityModel.csproj" />
     <ProjectReference Include="..\..\Core\Simply.Core\Simply.Core.csproj" />

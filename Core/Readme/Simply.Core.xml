@@ -21,5 +21,15 @@
             </summary>
             <param name="message">An error message.</param>
         </member>
+        <member name="T:Simply.Core.WebApiOptions">
+            <summary>
+            Web API options.
+            </summary>
+        </member>
+        <member name="P:Simply.Core.WebApiOptions.AllowedOrigins">
+            <summary>
+            Gets or sets an array of allowed origins by domain.
+            </summary>
+        </member>
     </members>
 </doc>

@@ -17,5 +17,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Simply.Application.ApplicationModel\Simply.Application.ApplicationModel.csproj" />
+  </ItemGroup>
 
 </Project>

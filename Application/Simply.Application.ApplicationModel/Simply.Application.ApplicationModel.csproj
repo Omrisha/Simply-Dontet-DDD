@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="11.9.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Domain\Simply.DomainModel.Impl\Simply.DomainModel.Impl.csproj" />
+	  <ProjectReference Include="..\..\Infrastracture\Simply.Infrastracture.Text\Simply.Infrastracture.Text.csproj" />
+	  <ProjectReference Include="..\..\ServiceAgents\Simply.ServiceAgent.CountriesServiceAgent.CountriesNow\Simply.ServiceAgent.CountriesServiceAgent.CountriesNow.csproj" />
+	  <ProjectReference Include="..\..\Simply.Services.Graphql\Simply.Services.Graphql.csproj" />
+	</ItemGroup>
+
+</Project>

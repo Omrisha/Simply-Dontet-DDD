@@ -4,9 +4,24 @@
         <name>Simply.Domain</name>
     </assembly>
     <members>
+        <member name="T:Simply.DomainModel.CountriesQueryParameters">
+            <summary>
+            Weather by country name query parameters.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.CountriesQueryParameters.Country">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.CountriesQueryParameters.State">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
         <member name="T:Simply.DomainModel.CountryDto">
             <summary>
-            Get Country input.
+            Country data transfer object.
             </summary>
         </member>
         <member name="P:Simply.DomainModel.CountryDto.Name">
@@ -14,9 +29,19 @@
             Gets or sets the country name.
             </summary>
         </member>
+        <member name="P:Simply.DomainModel.CountryDto.ThreeLetterCode">
+            <summary>
+            Gets or sets the three letter code.
+            </summary>
+        </member>
         <member name="P:Simply.DomainModel.CountryDto.Cities">
             <summary>
             Gets or sets the cities.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.CountryDto.States">
+            <summary>
+            Gets or sets the states.
             </summary>
         </member>
         <member name="T:Simply.DomainModel.GetCityInput">
@@ -31,18 +56,38 @@
         </member>
         <member name="T:Simply.DomainModel.GetCountriesInput">
             <summary>
-            Get countries input.
+            Get weather by country name input.
             </summary>
-            <param name="Name">Country name.</param>
+            <param name="Country">Country name.</param>
+            <param name="State">State name.</param>
         </member>
-        <member name="M:Simply.DomainModel.GetCountriesInput.#ctor(System.String)">
+        <member name="M:Simply.DomainModel.GetCountriesInput.#ctor(System.String,System.String)">
             <summary>
-            Get countries input.
+            Get weather by country name input.
             </summary>
-            <param name="Name">Country name.</param>
+            <param name="Country">Country name.</param>
+            <param name="State">State name.</param>
         </member>
-        <member name="P:Simply.DomainModel.GetCountriesInput.Name">
+        <member name="P:Simply.DomainModel.GetCountriesInput.Country">
             <summary>Country name.</summary>
+        </member>
+        <member name="P:Simply.DomainModel.GetCountriesInput.State">
+            <summary>State name.</summary>
+        </member>
+        <member name="T:Simply.DomainModel.StateDto">
+            <summary>
+            State data transfer object.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.StateDto.Name">
+            <summary>
+            Gets or sets the country name.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.StateDto.StateCode">
+            <summary>
+            Gets or sets the country name.
+            </summary>
         </member>
     </members>
 </doc>

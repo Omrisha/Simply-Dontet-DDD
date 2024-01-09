@@ -5,4 +5,4 @@ using MediatR;
 /// <summary>
 /// Get weather by country name input.
 /// </summary>
-public record GetWeatherByCountryNameQuery(GetWeatherByCountryNameInput GetCountriesInput) : IRequest<ICollection<CountryDto>>;
+public record GetWeatherByCountryNameQuery(GetCountriesInput GetCountriesInput) : IRequest<ICollection<CountryDto>>;
