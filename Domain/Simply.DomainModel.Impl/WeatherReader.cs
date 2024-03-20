@@ -49,22 +49,32 @@ public class WeatherReader :
 
             GetCountriesWithStatesInput getCountriesWithStatesInput = this.mapper.Map<GetCountriesInput, GetCountriesWithStatesInput>(input);
             GetCountriesWithCitiesInput getCountriesWithCitiesInput = this.mapper.Map<GetCountriesInput, GetCountriesWithCitiesInput>(input);
+            GetRateByCountryFilterInput getRateByCountryFilterInput = new();
 
             GetCountriesWithStatesOutput getCountriesWithStatesOutput = await this.countriesSeviceAgent.GetCountriesWithStatesByFilter(getCountriesWithStatesInput);
             GetCountriesWithCitiesOutput getCountriesWithCitiesOutput = await this.countriesSeviceAgent.GetCountriesWithCitiesByFilter(getCountriesWithCitiesInput);
+            GetRateByCountryFilterOutput getRateByCountryFilterOutput = await this.countriesSeviceAgent.GetRateByCountryFilter(getRateByCountryFilterInput);
 
-            Dictionary<string, List<string>> countryToCityMapping = getCountriesWithCitiesOutput.Data.DistinctBy(k => k.Name).ToDictionary(k => k.Name, v => v.Cities);
+            Dictionary<string, List<string>> countryToCityMapping = getCountriesWithCitiesOutput.Data
+                .DistinctBy(k => k.Name)
+                .ToDictionary(k => k.Name, v => v.Cities);
+            Dictionary<string, string> countryIso2ToRateMapping = getRateByCountryFilterOutput.Data
+                .DistinctBy(k => k.Name)
+                .ToDictionary(k => k.Name, v => v.Currency);
 
             getCountriesWithStatesOutput.Data.ForEach(c =>
             {
                 List<string> cities = new();
+                string currency = string.Empty;
                 countryToCityMapping.TryGetValue(c.Name, out cities);
+                countryIso2ToRateMapping.TryGetValue(c.Name, out currency);
                 result.Add(new CountryDto
                 {
                     Name = c.Name,
                     ThreeLetterCode = c.ThreeLetterCode,
                     States = this.mapper.Map<List<StateDataModel>, List<StateDto>>(c.States),
                     Cities = cities,
+                    Currency = currency,
                 });
             });
 

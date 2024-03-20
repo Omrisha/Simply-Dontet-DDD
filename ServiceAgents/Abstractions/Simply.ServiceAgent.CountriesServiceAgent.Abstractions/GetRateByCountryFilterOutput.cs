@@ -3,13 +3,13 @@
 using System.Text.Json.Serialization;
 
 /// <summary>
-/// Gets or sets countries filter input.
+/// Get rate by country filter output.
 /// </summary>
-public class GetCountriesWithStatesOutput
+public class GetRateByCountryFilterOutput
 {
     /// <summary>
-    /// Gets or sets the name.
+    /// Gets or sets the data.
     /// </summary>
     [JsonPropertyName("data")]
-    public List<CountryWithStatesDataModel> Data { get; set; }
+    public List<CountryRateDataModel> Data { get; set; }
 }

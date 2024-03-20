@@ -18,6 +18,11 @@ public class CountryDto
     public string ThreeLetterCode { get; set; }
 
     /// <summary>
+    /// Gets or sets the three letter code.
+    /// </summary>
+    public string Currency { get; set; }
+
+    /// <summary>
     /// Gets or sets the cities.
     /// </summary>
     public List<string> Cities { get; set; }

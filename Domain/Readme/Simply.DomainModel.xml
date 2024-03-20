@@ -34,6 +34,11 @@
             Gets or sets the three letter code.
             </summary>
         </member>
+        <member name="P:Simply.DomainModel.CountryDto.Currency">
+            <summary>
+            Gets or sets the three letter code.
+            </summary>
+        </member>
         <member name="P:Simply.DomainModel.CountryDto.Cities">
             <summary>
             Gets or sets the cities.

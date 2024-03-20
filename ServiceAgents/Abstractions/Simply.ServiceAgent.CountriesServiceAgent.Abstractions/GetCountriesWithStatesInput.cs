@@ -3,7 +3,7 @@
 using System.Text.Json.Serialization;
 
 /// <summary>
-/// Gets or sets countries filter input.
+/// Get countries filter input.
 /// </summary>
 public class GetCountriesWithStatesInput
 {

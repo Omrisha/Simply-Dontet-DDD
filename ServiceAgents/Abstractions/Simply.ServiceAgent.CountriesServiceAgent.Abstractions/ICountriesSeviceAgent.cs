@@ -11,5 +11,7 @@
         Task<GetCountriesWithStatesOutput> GetCountriesWithStatesByFilter(GetCountriesWithStatesInput input);
 
         Task<GetCountriesWithCitiesOutput> GetCountriesWithCitiesByFilter(GetCountriesWithCitiesInput input);
+
+        Task<GetRateByCountryFilterOutput> GetRateByCountryFilter(GetRateByCountryFilterInput input);
     }
 }

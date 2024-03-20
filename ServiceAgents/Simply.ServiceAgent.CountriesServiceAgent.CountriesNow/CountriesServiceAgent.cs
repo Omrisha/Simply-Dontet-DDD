@@ -22,6 +22,56 @@ public class CountriesServiceAgent : ICountriesSeviceAgent
         this.httpClient = httpClientFactory.CreateClient("CountryClient");
     }
 
+    public async Task<GetRateByCountryFilterOutput> GetRateByCountryFilter(GetRateByCountryFilterInput input)
+    {
+        try
+        {
+            this.logger.LogInformation("Get country's rate @{input}", input);
+
+            GetRateByCountryFilterOutput output = new();
+
+            string url = $"{BaseUrl}/countries/currency";
+
+            HttpResponseMessage httpResponseMessage;
+
+            if (string.IsNullOrEmpty(input.TwoLetterCode))
+            {
+                httpResponseMessage = await this.httpClient.GetAsync(url);
+            }
+            else
+            {
+                string json = JsonSerializer.Serialize(input);
+                StringContent content = new(json);
+                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+
+                httpResponseMessage = await this.httpClient.PostAsync(url, content);
+            }
+
+            if (httpResponseMessage.IsSuccessStatusCode)
+            {
+                string responseJson = await httpResponseMessage.Content.ReadAsStringAsync();
+                output = JsonSerializer.Deserialize<GetRateByCountryFilterOutput>(responseJson);
+
+                if (output is null)
+                {
+                    throw new FetchDataException("Probelm with data from countries API");
+                }
+
+            }
+            else
+            {
+                throw new FetchDataException("There's was unexpected error with the service.");
+            }
+
+            return output;
+        }
+        catch (Exception ex)
+        {
+            this.logger.LogError(ex, "{Message}", ex.Message);
+            throw;
+        }
+    }
+
     public async Task<GetCountriesWithStatesOutput> GetCountriesWithStatesByFilter(GetCountriesWithStatesInput input)
     {
         try
