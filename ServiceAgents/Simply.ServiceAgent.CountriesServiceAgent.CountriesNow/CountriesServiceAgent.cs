@@ -100,7 +100,20 @@ public class CountriesServiceAgent : ICountriesSeviceAgent
             if (httpResponseMessage.IsSuccessStatusCode)
             {
                 string responseJson = await httpResponseMessage.Content.ReadAsStringAsync();
-                output = JsonSerializer.Deserialize<GetCountriesWithStatesOutput>(responseJson);
+                
+                try
+                {
+                    output = JsonSerializer.Deserialize<GetCountriesWithStatesOutput>(responseJson);
+                }
+                catch
+                {
+                    Dictionary<string, object> dict = JsonSerializer.Deserialize<Dictionary<string, object>>(responseJson);
+                    output.Data = new();
+                    
+                    string objectString = JsonSerializer.Serialize(dict["data"]);
+                    CountryWithStatesDataModel countryWithStatesDataModel = JsonSerializer.Deserialize<CountryWithStatesDataModel>(objectString);
+                    output.Data.Add(countryWithStatesDataModel);
+                }
 
                 if (output is null)
                 {
