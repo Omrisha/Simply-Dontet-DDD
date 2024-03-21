@@ -15,7 +15,8 @@ using Simply.ServiceAgent.WeatherServiceAgent.Abstractions;
 /// Weather reader.
 /// </summary>
 public class CountryReader :
-    IRequestHandler<GeCountriesQuery, ICollection<CountryDto>>
+    IRequestHandler<GeCountriesQuery, ICollection<CountryDto>>,
+    IRequestHandler<GetCityAndRatesQuery, ICollection<CityDto>>
 {
     private const string BaseUrl = "https://countriesnow.space/api/v0.1";
     private readonly ILogger<CountryReader> logger;
@@ -107,26 +108,24 @@ public class CountryReader :
             GetCountriesWithCitiesOutput getCountriesWithCitiesOutput = await this.countriesSeviceAgent.GetCountriesWithCitiesByFilter(getCountriesWithCitiesInput);
             GetRateByCountryFilterOutput getRateByCountryFilterOutput = await this.countriesSeviceAgent.GetRateByCountryFilter(getRateByCountryFilterInput);
 
-            Dictionary<string, List<string>> countryToCityMapping = getCountriesWithCitiesOutput.Data
-                .DistinctBy(k => k.Name)
-                .ToDictionary(k => k.Name, v => v.Cities);
             Dictionary<string, string> countryIso2ToRateMapping = getRateByCountryFilterOutput.Data
                 .DistinctBy(k => k.Name)
                 .ToDictionary(k => k.Name, v => v.Currency);
 
-            getCountriesWithStatesOutput.Data.ForEach(c =>
+            int numerator = 1;
+            getCountriesWithCitiesOutput.Data.ForEach(country =>
             {
-                List<string> cities = new();
-                string currency = string.Empty;
-                countryToCityMapping.TryGetValue(c.Name, out cities);
-                countryIso2ToRateMapping.TryGetValue(c.Name, out currency);
-                result.Add(new CountryDto
+                countryIso2ToRateMapping.TryGetValue(country.Name, out string currency);
+                country.Cities.ForEach(city =>
                 {
-                    Name = c.Name,
-                    ThreeLetterCode = c.ThreeLetterCode,
-                    States = this.mapper.Map<List<StateDataModel>, List<StateDto>>(c.States),
-                    Cities = cities,
-                    Currency = currency,
+                    result.Add(new CityDto
+                    {
+                        Id = numerator++,
+                        Name = city,
+                        ThreeLetterCode = country.ThreeLetterCode,
+                        Currency = currency,
+                        Country = country.Name,
+                    });
                 });
             });
 
@@ -143,5 +142,11 @@ public class CountryReader :
     public async Task<ICollection<CountryDto>> Handle(GeCountriesQuery request, CancellationToken cancellationToken)
     {
         return await this.GetCountries(request.Input);
+    }
+
+    /// <inheritdoc/>
+    public async Task<ICollection<CityDto>> Handle(GetCityAndRatesQuery request, CancellationToken cancellationToken)
+    {
+        return await this.GetCityAndRates(request.Input);
     }
 }

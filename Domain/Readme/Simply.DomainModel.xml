@@ -4,6 +4,41 @@
         <name>Simply.Domain</name>
     </assembly>
     <members>
+        <member name="T:Simply.DomainModel.CityAndRatesQueryParameters">
+            <summary>
+            City and rates query parameters.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.CityAndRatesQueryParameters.CityName">
+            <summary>
+            Gets or sets city name.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.CityDto.Id">
+            <summary>
+            Gets or sets identifier.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.CityDto.Country">
+            <summary>
+            Gets or sets the country name.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.CityDto.ThreeLetterCode">
+            <summary>
+            Gets or sets the three letter code.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.CityDto.Name">
+            <summary>
+            Gets or sets the country name.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.CityDto.Currency">
+            <summary>
+            Gets or sets the three letter code.
+            </summary>
+        </member>
         <member name="P:Simply.DomainModel.ConditionDto.Text">
             <summary>
             Gets or sets text.
@@ -16,7 +51,7 @@
         </member>
         <member name="T:Simply.DomainModel.CountriesQueryParameters">
             <summary>
-            Weather by country name query parameters.
+            Countries query parameters.
             </summary>
         </member>
         <member name="P:Simply.DomainModel.CountriesQueryParameters.Country">

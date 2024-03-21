@@ -9,11 +9,12 @@ using Simply.DomainModel;
 public class GraphqlModelMappingProfile : Profile
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="DomainModelMappingProfile"/> class.
+    /// Initializes a new instance of the <see cref="GraphqlModelMappingProfile"/> class.
     /// </summary>
     public GraphqlModelMappingProfile()
     {
         this.CreateMap<CountriesQueryParameters, GetCountriesInput>();
         this.CreateMap<WeatherQueryParameters, GetWeatherByCityInput>();
+        this.CreateMap<CityAndRatesQueryParameters, GetCityAndRatesInput>();
     }
 }

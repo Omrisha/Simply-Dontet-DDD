@@ -24,7 +24,17 @@
             <param name="input">A <see cref="T:Simply.DomainModel.GetCountriesInput"/> instnace.</param>
             <returns>A task containing <see cref="T:System.Linq.IQueryable`1"/> instnace.</returns>
         </member>
+        <member name="M:Simply.DomainModel.Impl.CountryReader.GetCityAndRates(Simply.DomainModel.GetCityAndRatesInput)">
+            <summary>
+            Get countries logic.
+            </summary>
+            <param name="input">A <see cref="T:Simply.DomainModel.GetCountriesInput"/> instnace.</param>
+            <returns>A task containing <see cref="T:System.Linq.IQueryable`1"/> instnace.</returns>
+        </member>
         <member name="M:Simply.DomainModel.Impl.CountryReader.Handle(Simply.DomainModel.Cqrs.GeCountriesQuery,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Simply.DomainModel.Impl.CountryReader.Handle(Simply.DomainModel.Cqrs.GetCityAndRatesQuery,System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
         <member name="T:Simply.DomainModel.Impl.Mappings.DomainModelMappingProfile">

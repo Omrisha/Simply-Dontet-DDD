@@ -3,7 +3,7 @@
 using System.Text.Json.Serialization;
 
 /// <summary>
-/// Weather by country name query parameters.
+/// Countries query parameters.
 /// </summary>
 public class CountriesQueryParameters
 {

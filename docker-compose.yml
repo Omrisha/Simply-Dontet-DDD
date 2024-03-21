@@ -6,5 +6,10 @@ services:
     build:
       context: .
       dockerfile: Application/Simply.Application.WebApiApplication/Dockerfile
+    environment:
+      - ASPNETCORE_URLS=https://+:443;http://+:80;http://+:5001
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/ASP.NET/Https
+    volumes:
+      - ~/ASP.NET/Https:/https:ro
     ports:
       - 5810:80
