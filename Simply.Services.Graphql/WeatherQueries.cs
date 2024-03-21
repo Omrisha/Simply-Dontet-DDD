@@ -7,7 +7,7 @@ using Simply.DomainModel.Cqrs;
 namespace Simply.Services.Graphql;
 
 [ExtendObjectType("Query")]
-public class CountriesQueries
+public class WeatherQueries
 {
     /// <summary>
     /// Get countries query.
@@ -16,10 +16,10 @@ public class CountriesQueries
     /// <param name="filter">Country name to search weather for.</param>
     /// <returns></returns>
     [Serial]
-    public async Task<ICollection<CountryDto>> GetCountries([Service] IMediator mediator, [Service] IMapper mapper, CountriesQueryParameters? filter = null)
+    public async Task<WeatherDto> GetWeather([Service] IMediator mediator, [Service] IMapper mapper, WeatherQueryParameters? filter = null)
     {
-        GetCountriesInput getCountriesInput = filter != null ? mapper.Map<CountriesQueryParameters, GetCountriesInput>(filter) : new();
-        return await mediator.Send(new GeCountriesQuery(getCountriesInput));
+        GetWeatherByCityInput getCountriesInput = filter != null ? mapper.Map<WeatherQueryParameters, GetWeatherByCityInput>(filter) : new();
+        return await mediator.Send(new GetWeatherByCityNameQuery(getCountriesInput));
     }
 }
 

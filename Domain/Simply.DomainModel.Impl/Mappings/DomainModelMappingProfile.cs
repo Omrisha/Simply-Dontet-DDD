@@ -3,6 +3,7 @@
 using AutoMapper;
 using Simply.EntityModel;
 using Simply.ServiceAgent.CountriesServiceAgent.Abstractions;
+using Simply.ServiceAgent.WeatherServiceAgent.Abstractions;
 
 /// <summary>
 /// Domain model mapping profile.
@@ -21,5 +22,15 @@ public class DomainModelMappingProfile : Profile
 
         this.CreateMap<StateDataModel, StateDto>()
             .ForMember(d => d.Name, m => m.MapFrom(s => s.Name));
+
+        this.CreateMap<GetWeatherByCityInput, GetWeatherForCityInput>();
+
+        this.CreateMap<GetWeatherForCityOutput, WeatherDto>();
+        this.CreateMap<CurrentWeatherModel, CurrentWeatherDto>();
+        this.CreateMap<ForecastWeatherModel, ForecastWeatherDto>();
+        this.CreateMap<ConditionModel, ConditionDto>()
+            .ForMember(d => d.Icon, m => m.MapFrom(s => "https:" + s.Icon));
+        this.CreateMap<ForecastModel, ForecastDto>();
+        this.CreateMap<ForecastDayModel, ForecastDayDto>();
     }
 }

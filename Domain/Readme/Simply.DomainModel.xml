@@ -4,6 +4,16 @@
         <name>Simply.Domain</name>
     </assembly>
     <members>
+        <member name="P:Simply.DomainModel.ConditionDto.Text">
+            <summary>
+            Gets or sets text.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.ConditionDto.Icon">
+            <summary>
+            Gets or sets icon.
+            </summary>
+        </member>
         <member name="T:Simply.DomainModel.CountriesQueryParameters">
             <summary>
             Weather by country name query parameters.
@@ -49,6 +59,71 @@
             Gets or sets the states.
             </summary>
         </member>
+        <member name="P:Simply.DomainModel.CurrentWeatherDto.TemperatureCelcius">
+            <summary>
+            Gets or sets Temperature Celcius.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.CurrentWeatherDto.TemperatureFarenheit">
+            <summary>
+            Gets or sets Temperature Farenheit.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.CurrentWeatherDto.Condition">
+            <summary>
+            Gets or sets condition.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.ForecastDayDto.MaxTemperatureCelcius">
+            <summary>
+            Gets or sets Temperature Celcius.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.ForecastDayDto.MaxTemperatureFarenheit">
+            <summary>
+            Gets or sets Temperature Farenheit.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.ForecastDayDto.MinTemperatureCelcius">
+            <summary>
+            Gets or sets Temperature Celcius.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.ForecastDayDto.MinTemperatureFarenheit">
+            <summary>
+            Gets or sets Temperature Farenheit.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.ForecastDayDto.AverageTemperatureCelcius">
+            <summary>
+            Gets or sets Temperature Celcius.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.ForecastDayDto.AverageTemperatureFarenheit">
+            <summary>
+            Gets or sets Temperature Farenheit.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.ForecastDayDto.Condition">
+            <summary>
+            Gets or sets condition.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.ForecastDto.Date">
+            <summary>
+            Gets or sets date.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.ForecastDto.Day">
+            <summary>
+            Gets or sets day forecast.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.ForecastWeatherDto.Forecasts">
+            <summary>
+            Gets or sets forecast.
+            </summary>
+        </member>
         <member name="T:Simply.DomainModel.GetCityInput">
             <summary>
             Get city input.
@@ -79,6 +154,16 @@
         <member name="P:Simply.DomainModel.GetCountriesInput.State">
             <summary>State name.</summary>
         </member>
+        <member name="T:Simply.DomainModel.GetWeatherByCityInput">
+            <summary>
+            Get weather by city input.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.GetWeatherByCityInput.CityName">
+            <summary>
+            Gets or sets city name.
+            </summary>
+        </member>
         <member name="T:Simply.DomainModel.StateDto">
             <summary>
             State data transfer object.
@@ -92,6 +177,26 @@
         <member name="P:Simply.DomainModel.StateDto.StateCode">
             <summary>
             Gets or sets the country name.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.WeatherDto.Current">
+            <summary>
+            Gets or sets current weather.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.WeatherDto.Forecast">
+            <summary>
+            Gets or sets forecast.
+            </summary>
+        </member>
+        <member name="T:Simply.DomainModel.WeatherQueryParameters">
+            <summary>
+            Weather by country name query parameters.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.WeatherQueryParameters.CityName">
+            <summary>
+            Gets or sets the name.
             </summary>
         </member>
     </members>

@@ -24,6 +24,7 @@ using System.IO.Compression;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Text.Json.Serialization;
+using Simply.ServiceAgent.WeatherServiceAgent.WeatherAPI.Extensions;
 
 public static class SimplyExtensions
 {
@@ -50,6 +51,7 @@ public static class SimplyExtensions
         services.AddMediatrServices(typeof(WeatherReader).Assembly);
 
         services.AddCountriesServiceAgent();
+        services.AddWeatherServiceAgent();
 
         return services;
     }
@@ -192,6 +194,7 @@ public static class SimplyExtensions
             .AddQueryType(q => q.Name("Query"))
             .AddConvention<INamingConventions>(new PascalCaseGraphqlNamingConvention())
             .AddType<CountriesQueries>()
+            .AddType<WeatherQueries>()
             .InitializeOnStartup();
     }
 }

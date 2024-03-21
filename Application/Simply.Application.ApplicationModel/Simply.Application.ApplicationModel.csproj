@@ -21,6 +21,7 @@
 	  <ProjectReference Include="..\..\Domain\Simply.DomainModel.Impl\Simply.DomainModel.Impl.csproj" />
 	  <ProjectReference Include="..\..\Infrastracture\Simply.Infrastracture.Text\Simply.Infrastracture.Text.csproj" />
 	  <ProjectReference Include="..\..\ServiceAgents\Simply.ServiceAgent.CountriesServiceAgent.CountriesNow\Simply.ServiceAgent.CountriesServiceAgent.CountriesNow.csproj" />
+	  <ProjectReference Include="..\..\ServiceAgents\Simply.ServiceAgent.WeatherServiceAgent.WeatherAPI\Simply.ServiceAgent.WeatherServiceAgent.WeatherAPI.csproj" />
 	  <ProjectReference Include="..\..\Simply.Services.Graphql\Simply.Services.Graphql.csproj" />
 	</ItemGroup>
 

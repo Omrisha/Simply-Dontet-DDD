@@ -14,5 +14,6 @@ public class GraphqlModelMappingProfile : Profile
     public GraphqlModelMappingProfile()
     {
         this.CreateMap<CountriesQueryParameters, GetCountriesInput>();
+        this.CreateMap<WeatherQueryParameters, GetWeatherByCityInput>();
     }
 }

@@ -4,6 +4,29 @@
         <name>Simply.DomainModel.Impl</name>
     </assembly>
     <members>
+        <member name="T:Simply.DomainModel.Impl.CountryReader">
+            <summary>
+            Weather reader.
+            </summary>
+        </member>
+        <member name="M:Simply.DomainModel.Impl.CountryReader.#ctor(Microsoft.Extensions.Logging.ILogger{Simply.DomainModel.Impl.CountryReader},AutoMapper.IMapper,Simply.ServiceAgent.CountriesServiceAgent.Abstractions.ICountriesSeviceAgent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Simply.DomainModel.Impl.CountryReader"/> class.
+            </summary>
+            <param name="logger">A <see cref="T:Microsoft.Extensions.Logging.ILogger`1"/> instnace.</param>
+            <param name="mapper">A <see cref="T:AutoMapper.IMapper"/> instance.</param>
+            <param name="countriesSeviceAgent">A <see cref="T:Simply.ServiceAgent.CountriesServiceAgent.Abstractions.ICountriesSeviceAgent"/> instance.</param>
+        </member>
+        <member name="M:Simply.DomainModel.Impl.CountryReader.GetCountries(Simply.DomainModel.GetCountriesInput)">
+            <summary>
+            Get countries logic.
+            </summary>
+            <param name="input">A <see cref="T:Simply.DomainModel.GetCountriesInput"/> instnace.</param>
+            <returns>A task containing <see cref="T:System.Linq.IQueryable`1"/> instnace.</returns>
+        </member>
+        <member name="M:Simply.DomainModel.Impl.CountryReader.Handle(Simply.DomainModel.Cqrs.GeCountriesQuery,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
         <member name="T:Simply.DomainModel.Impl.Mappings.DomainModelMappingProfile">
             <summary>
             Domain model mapping profile.
@@ -19,22 +42,22 @@
             Weather reader.
             </summary>
         </member>
-        <member name="M:Simply.DomainModel.Impl.WeatherReader.#ctor(Microsoft.Extensions.Logging.ILogger{Simply.DomainModel.Impl.WeatherReader},AutoMapper.IMapper,Simply.ServiceAgent.CountriesServiceAgent.Abstractions.ICountriesSeviceAgent)">
+        <member name="M:Simply.DomainModel.Impl.WeatherReader.#ctor(Microsoft.Extensions.Logging.ILogger{Simply.DomainModel.Impl.WeatherReader},AutoMapper.IMapper,Simply.ServiceAgent.WeatherServiceAgent.Abstractions.IWeatherServiceAgent)">
             <summary>
             Initializes a new instance of the <see cref="T:Simply.DomainModel.Impl.WeatherReader"/> class.
             </summary>
             <param name="logger">A <see cref="T:Microsoft.Extensions.Logging.ILogger`1"/> instnace.</param>
             <param name="mapper">A <see cref="T:AutoMapper.IMapper"/> instance.</param>
-            <param name="countriesSeviceAgent">A <see cref="T:Simply.ServiceAgent.CountriesServiceAgent.Abstractions.ICountriesSeviceAgent"/> instance.</param>
+            <param name="weatherServiceAgent">A <see cref="T:Simply.ServiceAgent.WeatherServiceAgent.Abstractions.IWeatherServiceAgent"/> instance.</param>
         </member>
-        <member name="M:Simply.DomainModel.Impl.WeatherReader.GetCountries(Simply.DomainModel.GetCountriesInput)">
+        <member name="M:Simply.DomainModel.Impl.WeatherReader.GetWeatherByCity(Simply.DomainModel.GetWeatherByCityInput)">
             <summary>
-            Get countries logic.
+            Get wather query logic by city name.
             </summary>
             <param name="input">A <see cref="T:Simply.DomainModel.GetCountriesInput"/> instnace.</param>
             <returns>A task containing <see cref="T:System.Linq.IQueryable`1"/> instnace.</returns>
         </member>
-        <member name="M:Simply.DomainModel.Impl.WeatherReader.Handle(Simply.DomainModel.Cqrs.GetWeatherByCountryNameQuery,System.Threading.CancellationToken)">
+        <member name="M:Simply.DomainModel.Impl.WeatherReader.Handle(Simply.DomainModel.Cqrs.GetWeatherByCityNameQuery,System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
     </members>

@@ -1,9 +1,15 @@
 namespace Simply.ServiceAgent.WeatherService.Agent;
 
-public class WeatherServiceAgent
+using Microsoft.Extensions.Logging;
+using Simply.Core;
+using Simply.ServiceAgent.WeatherServiceAgent.Abstractions;
+using System.Net.Http;
+using System.Text.Json;
+
+public class WeatherServiceAgent : IWeatherServiceAgent
 {
-    private const string BaseUrl = "http://api.weatherapi.com/v1";
-    private readonly ILogger<CountriesServiceAgent> logger;
+    private const string BaseUrl = "https://api.weatherapi.com/v1";
+    private readonly ILogger<WeatherServiceAgent> logger;
     private HttpClient httpClient;
 
     /// <summary>
@@ -11,13 +17,11 @@ public class WeatherServiceAgent
     /// </summary>
     /// <param name="logger">A <see cref="ILogger{CountriesServiceAgent}"/> instnace.</param>
     /// <param name="httpClientFactory">A <see cref="IHttpClientFactory"/> instance.</param>
-    public CountriesServiceAgent(ILogger<CountriesServiceAgent> logger, IHttpClientFactory httpClientFactory)
+    public WeatherServiceAgent(ILogger<WeatherServiceAgent> logger, IHttpClientFactory httpClientFactory)
     {
         this.logger = logger;
         this.httpClient = httpClientFactory.CreateClient("CountryClient");
     }
-    
-    //"
 
     public async Task<GetWeatherForCityOutput> GetWeatherForCity(GetWeatherForCityInput input)
     {
@@ -25,33 +29,27 @@ public class WeatherServiceAgent
         {
             this.logger.LogInformation("Get country's rate @{input}", input);
 
+            if (string.IsNullOrEmpty(input.CityName))
+            {
+                throw new ArgumentNullException(nameof(input.CityName));
+            }
+
             GetWeatherForCityOutput output = new();
 
-            string url = $"{BaseUrl}/current.json?key=6eca85b1d048484c966181029242003&q={cityName}&api=no";
+            string url = $"{BaseUrl}/forecast.json?q={input.CityName}&days=7&key=6eca85b1d048484c966181029242003%20";
 
             HttpResponseMessage httpResponseMessage;
 
-            if (string.IsNullOrEmpty(input.TwoLetterCode))
-            {
-                httpResponseMessage = await this.httpClient.GetAsync(url);
-            }
-            else
-            {
-                string json = JsonSerializer.Serialize(input);
-                StringContent content = new(json);
-                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-
-                httpResponseMessage = await this.httpClient.PostAsync(url, content);
-            }
+            httpResponseMessage = await this.httpClient.GetAsync(url);
 
             if (httpResponseMessage.IsSuccessStatusCode)
             {
                 string responseJson = await httpResponseMessage.Content.ReadAsStringAsync();
-                output = JsonSerializer.Deserialize<GetRateByCountryFilterOutput>(responseJson);
+                output = JsonSerializer.Deserialize<GetWeatherForCityOutput>(responseJson);
 
                 if (output is null)
                 {
-                    throw new FetchDataException("Probelm with data from countries API");
+                    throw new FetchDataException("Probelm with data from weather API");
                 }
 
             }

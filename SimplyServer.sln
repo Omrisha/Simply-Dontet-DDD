@@ -35,21 +35,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{798064EA
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{EE16FFF9-781E-40B4-BDE4-C3B7875832D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.Application.ApplicationModel", "Application\Simply.Application.ApplicationModel\Simply.Application.ApplicationModel.csproj", "{4331E80B-22C6-418A-94C7-5F1685A04A97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.Application.ApplicationModel", "Application\Simply.Application.ApplicationModel\Simply.Application.ApplicationModel.csproj", "{4331E80B-22C6-418A-94C7-5F1685A04A97}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastracture", "Infrastracture", "{3BB8058D-DCF1-439C-97BD-31C8778636FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.Infrastracture.Text", "Infrastracture\Simply.Infrastracture.Text\Simply.Infrastracture.Text.csproj", "{44B6D33C-E0BB-4BE0-A1B7-C285297EAE79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.Infrastracture.Text", "Infrastracture\Simply.Infrastracture.Text\Simply.Infrastracture.Text.csproj", "{44B6D33C-E0BB-4BE0-A1B7-C285297EAE79}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceAgents", "ServiceAgents", "{240680C1-5321-411B-BAEA-4A24F9090740}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.ServiceAgent.CountriesServiceAgent.Abstractions", "ServiceAgents\Abstractions\Simply.ServiceAgent.CountriesServiceAgent.Abstractions\Simply.ServiceAgent.CountriesServiceAgent.Abstractions.csproj", "{293F188E-6B32-427C-8465-9FE0EA6CFD30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.ServiceAgent.CountriesServiceAgent.Abstractions", "ServiceAgents\Abstractions\Simply.ServiceAgent.CountriesServiceAgent.Abstractions\Simply.ServiceAgent.CountriesServiceAgent.Abstractions.csproj", "{293F188E-6B32-427C-8465-9FE0EA6CFD30}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstractions", "{C78137BD-0BF5-454A-BD56-14075C8C4DD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.ServiceAgent.CountriesServiceAgent.CountriesNow", "ServiceAgents\Simply.ServiceAgent.CountriesServiceAgent.CountriesNow\Simply.ServiceAgent.CountriesServiceAgent.CountriesNow.csproj", "{1019871C-F1FF-4E84-8216-AA1C2D926A08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simply.ServiceAgent.CountriesServiceAgent.CountriesNow", "ServiceAgents\Simply.ServiceAgent.CountriesServiceAgent.CountriesNow\Simply.ServiceAgent.CountriesServiceAgent.CountriesNow.csproj", "{1019871C-F1FF-4E84-8216-AA1C2D926A08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.ServiceAgent.WeatherService.Agent", "ServiceAgents\Simply.ServiceAgent.WeatherService.Agent\Simply.ServiceAgent.WeatherService.Agent.csproj", "{32DAF575-363E-46E7-9A03-74AC5F1F8907}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.ServiceAgent.WeatherServiceAgent.WeatherAPI", "ServiceAgents\Simply.ServiceAgent.WeatherServiceAgent.WeatherAPI\Simply.ServiceAgent.WeatherServiceAgent.WeatherAPI.csproj", "{9EF63A98-8D4E-43B5-B2CF-8989182A8B99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.ServiceAgent.WeatherServiceAgent.Abstractions", "ServiceAgents\Abstractions\Simply.ServiceAgent.WeatherServiceAgent.Abstractions\Simply.ServiceAgent.WeatherServiceAgent.Abstractions.csproj", "{9B571B89-B326-4DBE-9970-F4D31EDDB490}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,10 +115,14 @@ Global
 		{1019871C-F1FF-4E84-8216-AA1C2D926A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1019871C-F1FF-4E84-8216-AA1C2D926A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1019871C-F1FF-4E84-8216-AA1C2D926A08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32DAF575-363E-46E7-9A03-74AC5F1F8907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32DAF575-363E-46E7-9A03-74AC5F1F8907}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32DAF575-363E-46E7-9A03-74AC5F1F8907}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32DAF575-363E-46E7-9A03-74AC5F1F8907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EF63A98-8D4E-43B5-B2CF-8989182A8B99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EF63A98-8D4E-43B5-B2CF-8989182A8B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EF63A98-8D4E-43B5-B2CF-8989182A8B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EF63A98-8D4E-43B5-B2CF-8989182A8B99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B571B89-B326-4DBE-9970-F4D31EDDB490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B571B89-B326-4DBE-9970-F4D31EDDB490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B571B89-B326-4DBE-9970-F4D31EDDB490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B571B89-B326-4DBE-9970-F4D31EDDB490}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,7 +142,8 @@ Global
 		{293F188E-6B32-427C-8465-9FE0EA6CFD30} = {C78137BD-0BF5-454A-BD56-14075C8C4DD8}
 		{C78137BD-0BF5-454A-BD56-14075C8C4DD8} = {240680C1-5321-411B-BAEA-4A24F9090740}
 		{1019871C-F1FF-4E84-8216-AA1C2D926A08} = {240680C1-5321-411B-BAEA-4A24F9090740}
-		{32DAF575-363E-46E7-9A03-74AC5F1F8907} = {240680C1-5321-411B-BAEA-4A24F9090740}
+		{9EF63A98-8D4E-43B5-B2CF-8989182A8B99} = {240680C1-5321-411B-BAEA-4A24F9090740}
+		{9B571B89-B326-4DBE-9970-F4D31EDDB490} = {C78137BD-0BF5-454A-BD56-14075C8C4DD8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AE31018-068E-4F57-87AF-86B160F8F390}

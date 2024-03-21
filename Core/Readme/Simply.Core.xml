@@ -10,6 +10,17 @@
             </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Simply.Core.EntityNotFoundException.#ctor(System.String,System.String)" -->
+        <member name="T:Simply.Core.FetchDataException">
+            <summary>
+            Fetch data exception.
+            </summary>
+        </member>
+        <member name="M:Simply.Core.FetchDataException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Simply.Core.FetchDataException"/> class.
+            </summary>
+            <param name="message">A message.</param>
+        </member>
         <member name="T:Simply.Core.ServerErrorException">
             <summary>
             Server error exception.

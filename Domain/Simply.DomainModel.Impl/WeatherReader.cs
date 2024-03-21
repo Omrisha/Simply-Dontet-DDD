@@ -9,74 +9,50 @@ using Microsoft.Extensions.Logging;
 using Simply.Core;
 using Simply.DomainModel.Cqrs;
 using Simply.ServiceAgent.CountriesServiceAgent.Abstractions;
+using Simply.ServiceAgent.WeatherServiceAgent.Abstractions;
 
 /// <summary>
 /// Weather reader.
 /// </summary>
 public class WeatherReader :
-    IRequestHandler<GetWeatherByCountryNameQuery, ICollection<CountryDto>>
+    IRequestHandler<GetWeatherByCityNameQuery, WeatherDto>
 {
     private const string BaseUrl = "https://countriesnow.space/api/v0.1";
     private readonly ILogger<WeatherReader> logger;
     private readonly IMapper mapper;
-    private readonly ICountriesSeviceAgent countriesSeviceAgent;
+    private readonly IWeatherServiceAgent weatherServiceAgent;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="WeatherReader"/> class.
     /// </summary>
     /// <param name="logger">A <see cref="ILogger{CountryReader}"/> instnace.</param>
     /// <param name="mapper">A <see cref="IMapper"/> instance.</param>
-    /// <param name="countriesSeviceAgent">A <see cref="ICountriesSeviceAgent"/> instance.</param>
-    public WeatherReader(ILogger<WeatherReader> logger, IMapper mapper, ICountriesSeviceAgent countriesSeviceAgent)
+    /// <param name="weatherServiceAgent">A <see cref="IWeatherServiceAgent"/> instance.</param>
+    public WeatherReader(ILogger<WeatherReader> logger, IMapper mapper, IWeatherServiceAgent weatherServiceAgent)
     {
         this.logger = logger;
         this.mapper = mapper;
-        this.countriesSeviceAgent = countriesSeviceAgent;
+        this.weatherServiceAgent = weatherServiceAgent;
     }
 
     /// <summary>
-    /// Get countries logic.
+    /// Get wather query logic by city name.
     /// </summary>
     /// <param name="input">A <see cref="GetCountriesInput"/> instnace.</param>
     /// <returns>A task containing <see cref="IQueryable{CountryDto}"/> instnace.</returns>
-    public async Task<ICollection<CountryDto>> GetCountries(GetCountriesInput input)
+    public async Task<WeatherDto> GetWeatherByCity(GetWeatherByCityInput input)
     {
         try
         {
-            this.logger.LogInformation("Get countries query logic by @{input}", input);
+            this.logger.LogInformation("Get wather query logic by city name @{input}", input);
 
-            List<CountryDto> result = new();
+            WeatherDto result = new();
 
-            GetCountriesWithStatesInput getCountriesWithStatesInput = this.mapper.Map<GetCountriesInput, GetCountriesWithStatesInput>(input);
-            GetCountriesWithCitiesInput getCountriesWithCitiesInput = this.mapper.Map<GetCountriesInput, GetCountriesWithCitiesInput>(input);
-            GetRateByCountryFilterInput getRateByCountryFilterInput = new();
+            GetWeatherForCityInput serviceAgentInput = this.mapper.Map<GetWeatherByCityInput, GetWeatherForCityInput>(input);
 
-            GetCountriesWithStatesOutput getCountriesWithStatesOutput = await this.countriesSeviceAgent.GetCountriesWithStatesByFilter(getCountriesWithStatesInput);
-            GetCountriesWithCitiesOutput getCountriesWithCitiesOutput = await this.countriesSeviceAgent.GetCountriesWithCitiesByFilter(getCountriesWithCitiesInput);
-            GetRateByCountryFilterOutput getRateByCountryFilterOutput = await this.countriesSeviceAgent.GetRateByCountryFilter(getRateByCountryFilterInput);
+            GetWeatherForCityOutput output = await this.weatherServiceAgent.GetWeatherForCity(serviceAgentInput);
 
-            Dictionary<string, List<string>> countryToCityMapping = getCountriesWithCitiesOutput.Data
-                .DistinctBy(k => k.Name)
-                .ToDictionary(k => k.Name, v => v.Cities);
-            Dictionary<string, string> countryIso2ToRateMapping = getRateByCountryFilterOutput.Data
-                .DistinctBy(k => k.Name)
-                .ToDictionary(k => k.Name, v => v.Currency);
-
-            getCountriesWithStatesOutput.Data.ForEach(c =>
-            {
-                List<string> cities = new();
-                string currency = string.Empty;
-                countryToCityMapping.TryGetValue(c.Name, out cities);
-                countryIso2ToRateMapping.TryGetValue(c.Name, out currency);
-                result.Add(new CountryDto
-                {
-                    Name = c.Name,
-                    ThreeLetterCode = c.ThreeLetterCode,
-                    States = this.mapper.Map<List<StateDataModel>, List<StateDto>>(c.States),
-                    Cities = cities,
-                    Currency = currency,
-                });
-            });
+            result = this.mapper.Map<GetWeatherForCityOutput, WeatherDto>(output);
 
             return result;
         }
@@ -88,8 +64,8 @@ public class WeatherReader :
     }
 
     /// <inheritdoc/>
-    public async Task<ICollection<CountryDto>> Handle(GetWeatherByCountryNameQuery request, CancellationToken cancellationToken)
+    public async Task<WeatherDto> Handle(GetWeatherByCityNameQuery request, CancellationToken cancellationToken)
     {
-        return await this.GetCountries(request.GetCountriesInput);
+        return await this.GetWeatherByCity(request.Input);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Simply.ServiceAgent.CountriesServiceAgent.Abstractions;
+﻿namespace Simply.Core;
 
 using System;
 
@@ -10,10 +10,9 @@ public class FetchDataException : Exception
     /// <summary>
     /// Initializes a new instance of the <see cref="FetchDataException"/> class.
     /// </summary>
-    /// <param name="message">A message</param>
-    public FetchDataException(string message) 
+    /// <param name="message">A message.</param>
+    public FetchDataException(string message)
         : base($"{message}")
     {
-        
     }
 }

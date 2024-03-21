@@ -1,6 +1,7 @@
 ﻿namespace Simply.ServiceAgent.CountriesServiceAgent.CountriesNow;
 
 using Microsoft.Extensions.Logging;
+using Simply.Core;
 using Simply.ServiceAgent.CountriesServiceAgent.Abstractions;
 using System.Net.Http;
 using System.Text.Json;
@@ -22,8 +23,6 @@ public class CountriesServiceAgent : ICountriesSeviceAgent
         this.httpClient = httpClientFactory.CreateClient("CountryClient");
     }
     
-    //"http://api.weatherapi.com/v1/current.json?key=6eca85b1d048484c966181029242003&q=" + cityName + "&api=no"
-
     public async Task<GetRateByCountryFilterOutput> GetRateByCountryFilter(GetRateByCountryFilterInput input)
     {
         try
