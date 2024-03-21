@@ -88,6 +88,57 @@ public class CountryReader :
         }
     }
 
+    /// <summary>
+    /// Get countries logic.
+    /// </summary>
+    /// <param name="input">A <see cref="GetCountriesInput"/> instnace.</param>
+    /// <returns>A task containing <see cref="IQueryable{CountryDto}"/> instnace.</returns>
+    public async Task<ICollection<CityDto>> GetCityAndRates(GetCityAndRatesInput input)
+    {
+        try
+        {
+            this.logger.LogInformation("Get countries query logic by @{input}", input);
+
+            List<CityDto> result = new();
+
+            GetCountriesWithCitiesInput getCountriesWithCitiesInput = new();
+            GetRateByCountryFilterInput getRateByCountryFilterInput = new();
+
+            GetCountriesWithCitiesOutput getCountriesWithCitiesOutput = await this.countriesSeviceAgent.GetCountriesWithCitiesByFilter(getCountriesWithCitiesInput);
+            GetRateByCountryFilterOutput getRateByCountryFilterOutput = await this.countriesSeviceAgent.GetRateByCountryFilter(getRateByCountryFilterInput);
+
+            Dictionary<string, List<string>> countryToCityMapping = getCountriesWithCitiesOutput.Data
+                .DistinctBy(k => k.Name)
+                .ToDictionary(k => k.Name, v => v.Cities);
+            Dictionary<string, string> countryIso2ToRateMapping = getRateByCountryFilterOutput.Data
+                .DistinctBy(k => k.Name)
+                .ToDictionary(k => k.Name, v => v.Currency);
+
+            getCountriesWithStatesOutput.Data.ForEach(c =>
+            {
+                List<string> cities = new();
+                string currency = string.Empty;
+                countryToCityMapping.TryGetValue(c.Name, out cities);
+                countryIso2ToRateMapping.TryGetValue(c.Name, out currency);
+                result.Add(new CountryDto
+                {
+                    Name = c.Name,
+                    ThreeLetterCode = c.ThreeLetterCode,
+                    States = this.mapper.Map<List<StateDataModel>, List<StateDto>>(c.States),
+                    Cities = cities,
+                    Currency = currency,
+                });
+            });
+
+            return result;
+        }
+        catch (Exception ex)
+        {
+            this.logger.LogError(ex, "{Message}", ex.Message);
+            throw;
+        }
+    }
+
     /// <inheritdoc/>
     public async Task<ICollection<CountryDto>> Handle(GeCountriesQuery request, CancellationToken cancellationToken)
     {
