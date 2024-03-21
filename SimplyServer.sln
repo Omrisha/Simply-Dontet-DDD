@@ -49,6 +49,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstraction
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.ServiceAgent.CountriesServiceAgent.CountriesNow", "ServiceAgents\Simply.ServiceAgent.CountriesServiceAgent.CountriesNow\Simply.ServiceAgent.CountriesServiceAgent.CountriesNow.csproj", "{1019871C-F1FF-4E84-8216-AA1C2D926A08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simply.ServiceAgent.WeatherService.Agent", "ServiceAgents\Simply.ServiceAgent.WeatherService.Agent\Simply.ServiceAgent.WeatherService.Agent.csproj", "{32DAF575-363E-46E7-9A03-74AC5F1F8907}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{1019871C-F1FF-4E84-8216-AA1C2D926A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1019871C-F1FF-4E84-8216-AA1C2D926A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1019871C-F1FF-4E84-8216-AA1C2D926A08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32DAF575-363E-46E7-9A03-74AC5F1F8907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32DAF575-363E-46E7-9A03-74AC5F1F8907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32DAF575-363E-46E7-9A03-74AC5F1F8907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32DAF575-363E-46E7-9A03-74AC5F1F8907}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +136,7 @@ Global
 		{293F188E-6B32-427C-8465-9FE0EA6CFD30} = {C78137BD-0BF5-454A-BD56-14075C8C4DD8}
 		{C78137BD-0BF5-454A-BD56-14075C8C4DD8} = {240680C1-5321-411B-BAEA-4A24F9090740}
 		{1019871C-F1FF-4E84-8216-AA1C2D926A08} = {240680C1-5321-411B-BAEA-4A24F9090740}
+		{32DAF575-363E-46E7-9A03-74AC5F1F8907} = {240680C1-5321-411B-BAEA-4A24F9090740}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AE31018-068E-4F57-87AF-86B160F8F390}

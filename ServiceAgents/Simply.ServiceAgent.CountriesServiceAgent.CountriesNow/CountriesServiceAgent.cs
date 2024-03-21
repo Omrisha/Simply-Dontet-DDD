@@ -21,6 +21,8 @@ public class CountriesServiceAgent : ICountriesSeviceAgent
         this.logger = logger;
         this.httpClient = httpClientFactory.CreateClient("CountryClient");
     }
+    
+    //"http://api.weatherapi.com/v1/current.json?key=6eca85b1d048484c966181029242003&q=" + cityName + "&api=no"
 
     public async Task<GetRateByCountryFilterOutput> GetRateByCountryFilter(GetRateByCountryFilterInput input)
     {
