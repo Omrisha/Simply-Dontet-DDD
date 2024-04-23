@@ -15,7 +15,8 @@ using Simply.ServiceAgent.WeatherServiceAgent.Abstractions;
 /// Weather reader.
 /// </summary>
 public class WeatherReader :
-    IRequestHandler<GetWeatherByCityNameQuery, WeatherDto>
+    IRequestHandler<GetWeatherByCityNameQuery, WeatherDto>,
+    IRequestHandler<GetWeatherByLocationQuery, WeatherByLocationDto>
 {
     private const string BaseUrl = "https://countriesnow.space/api/v0.1";
     private readonly ILogger<WeatherReader> logger;
@@ -33,6 +34,34 @@ public class WeatherReader :
         this.logger = logger;
         this.mapper = mapper;
         this.weatherServiceAgent = weatherServiceAgent;
+    }
+
+    /// <summary>
+    /// Get wather query logic by city name.
+    /// </summary>
+    /// <param name="input">A <see cref="GetCountriesInput"/> instnace.</param>
+    /// <returns>A task containing <see cref="IQueryable{CountryDto}"/> instnace.</returns>
+    public async Task<WeatherByLocationDto> GetWeatherByLocation(GetWeathByLocationInput input)
+    {
+        try
+        {
+            this.logger.LogInformation("Get wather query logic by city name @{input}", input);
+
+            WeatherByLocationDto result = new();
+
+            GetWeatherForLocationInput serviceAgentInput = this.mapper.Map<GetWeathByLocationInput, GetWeatherForLocationInput>(input);
+
+            GetWeatherForLocationOutput output = await this.weatherServiceAgent.GetWeatherForLocation(serviceAgentInput);
+
+            result = this.mapper.Map<GetWeatherForLocationOutput, WeatherByLocationDto>(output);
+
+            return result;
+        }
+        catch (Exception ex)
+        {
+            this.logger.LogError(ex, "{Message}", ex.Message);
+            throw;
+        }
     }
 
     /// <summary>
@@ -67,5 +96,11 @@ public class WeatherReader :
     public async Task<WeatherDto> Handle(GetWeatherByCityNameQuery request, CancellationToken cancellationToken)
     {
         return await this.GetWeatherByCity(request.Input);
+    }
+
+    /// <inheritdoc/>
+    public async Task<WeatherByLocationDto> Handle(GetWeatherByLocationQuery request, CancellationToken cancellationToken)
+    {
+        return await this.GetWeatherByLocation(request.Input);
     }
 }

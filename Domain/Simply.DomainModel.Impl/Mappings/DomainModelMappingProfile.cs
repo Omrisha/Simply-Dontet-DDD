@@ -32,5 +32,9 @@ public class DomainModelMappingProfile : Profile
             .ForMember(d => d.Icon, m => m.MapFrom(s => "https:" + s.Icon));
         this.CreateMap<ForecastModel, ForecastDto>();
         this.CreateMap<ForecastDayModel, ForecastDayDto>();
+
+        this.CreateMap<GetWeathByLocationInput, GetWeatherForLocationInput>();
+        this.CreateMap<GetWeatherForLocationOutput, WeatherByLocationDto>();
+        this.CreateMap<HourlyModel, HourlyDto>();
     }
 }

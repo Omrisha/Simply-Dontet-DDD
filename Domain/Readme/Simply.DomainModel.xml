@@ -189,6 +189,21 @@
         <member name="P:Simply.DomainModel.GetCountriesInput.State">
             <summary>State name.</summary>
         </member>
+        <member name="T:Simply.DomainModel.GetWeathByLocationInput">
+            <summary>
+            Get weather by location input.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.GetWeathByLocationInput.Longitude">
+            <summary>
+            Gets or sets longitude.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.GetWeathByLocationInput.Latitude">
+            <summary>
+            Gets or sets latitude.
+            </summary>
+        </member>
         <member name="T:Simply.DomainModel.GetWeatherByCityInput">
             <summary>
             Get weather by city input.
@@ -197,6 +212,31 @@
         <member name="P:Simply.DomainModel.GetWeatherByCityInput.CityName">
             <summary>
             Gets or sets city name.
+            </summary>
+        </member>
+        <member name="T:Simply.DomainModel.HourlyDto">
+            <summary>
+            Hourly data transfer object.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.HourlyDto.Time">
+            <summary>
+            Gets or sets forecast.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.HourlyDto.Temperature">
+            <summary>
+            Gets or sets forecast.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.HourlyDto.RelativeHumidity">
+            <summary>
+            Gets or sets forecast.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.HourlyDto.WindSpeed">
+            <summary>
+            Gets or sets forecast.
             </summary>
         </member>
         <member name="T:Simply.DomainModel.StateDto">
@@ -212,6 +252,26 @@
         <member name="P:Simply.DomainModel.StateDto.StateCode">
             <summary>
             Gets or sets the country name.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.WeatherByLocationDto.Hourly">
+            <summary>
+            Gets or sets forecast.
+            </summary>
+        </member>
+        <member name="T:Simply.DomainModel.WeatherByLocationQueryParameters">
+            <summary>
+            Weather by country name query parameters.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.WeatherByLocationQueryParameters.Longitude">
+            <summary>
+            Gets or sets longitude.
+            </summary>
+        </member>
+        <member name="P:Simply.DomainModel.WeatherByLocationQueryParameters.Latitude">
+            <summary>
+            Gets or sets latitude.
             </summary>
         </member>
         <member name="P:Simply.DomainModel.WeatherDto.Current">

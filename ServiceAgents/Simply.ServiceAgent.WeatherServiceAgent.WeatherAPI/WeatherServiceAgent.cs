@@ -9,6 +9,7 @@ using System.Text.Json;
 public class WeatherServiceAgent : IWeatherServiceAgent
 {
     private const string BaseUrl = "https://api.weatherapi.com/v1";
+    private const string BaseUrlOpen = "https://api.open-meteo.com/v1/forecast";
     private readonly ILogger<WeatherServiceAgent> logger;
     private HttpClient httpClient;
 
@@ -23,6 +24,45 @@ public class WeatherServiceAgent : IWeatherServiceAgent
         this.httpClient = httpClientFactory.CreateClient("CountryClient");
     }
 
+    public async Task<GetWeatherForLocationOutput> GetWeatherForLocation(GetWeatherForLocationInput input)
+    {
+        try
+        {
+            this.logger.LogInformation("Get country's rate @{input}", input);
+
+            GetWeatherForLocationOutput output = new();
+
+            string url = $"{BaseUrlOpen}/?latitude={input.Latitude}&longitude={input.Longitude}&past_days=10&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m";
+
+            HttpResponseMessage httpResponseMessage;
+
+            httpResponseMessage = await this.httpClient.GetAsync(url);
+
+            if (httpResponseMessage.IsSuccessStatusCode)
+            {
+                string responseJson = await httpResponseMessage.Content.ReadAsStringAsync();
+                output = JsonSerializer.Deserialize<GetWeatherForLocationOutput>(responseJson);
+
+                if (output is null)
+                {
+                    throw new FetchDataException("Probelm with data from weather API");
+                }
+
+            }
+            else
+            {
+                throw new FetchDataException("There's was unexpected error with the service.");
+            }
+
+            return output;
+        }
+        catch (Exception ex)
+        {
+            this.logger.LogError(ex, "{Message}", ex.Message);
+            throw;
+        }
+    }
+    
     public async Task<GetWeatherForCityOutput> GetWeatherForCity(GetWeatherForCityInput input)
     {
         try
@@ -36,7 +76,7 @@ public class WeatherServiceAgent : IWeatherServiceAgent
 
             GetWeatherForCityOutput output = new();
 
-            string url = $"{BaseUrl}/forecast.json?q={input.CityName}&days=7&key=6eca85b1d048484c966181029242003%20";
+            string url = $"{BaseUrl}/forecast.json?q={input.CityName}&key=6eca85b1d048484c966181029242003&days=7";
 
             HttpResponseMessage httpResponseMessage;
 

@@ -5,4 +5,6 @@ using System.Threading.Tasks;
 public interface IWeatherServiceAgent
 {
     Task<GetWeatherForCityOutput> GetWeatherForCity(GetWeatherForCityInput input);
+
+    Task<GetWeatherForLocationOutput> GetWeatherForLocation(GetWeatherForLocationInput input);
 }
