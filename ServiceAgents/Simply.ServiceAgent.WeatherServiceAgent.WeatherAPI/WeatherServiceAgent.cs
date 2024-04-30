@@ -32,7 +32,7 @@ public class WeatherServiceAgent : IWeatherServiceAgent
 
             GetWeatherForLocationOutput output = new();
 
-            string url = $"{BaseUrlOpen}/?latitude={input.Latitude}&longitude={input.Longitude}&past_days=10&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m";
+            string url = $"{BaseUrlOpen}/?latitude={input.Latitude}&longitude={input.Longitude}&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m";
 
             HttpResponseMessage httpResponseMessage;
 
